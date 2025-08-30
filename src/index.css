@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Pixel RPG Game Theme */
+    --background: 25 15% 8%;
+    --foreground: 45 90% 85%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 45 90% 85%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 45 90% 85%;
+
+    --primary: 280 100% 70%;
+    --primary-foreground: 25 15% 8%;
+
+    --secondary: 45 95% 65%;
+    --secondary-foreground: 25 15% 8%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 45 30% 60%;
+
+    --accent: 120 60% 50%;
+    --accent-foreground: 25 15% 8%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 45 90% 85%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 280 100% 70%;
+
+    /* Pixel Art Specific Colors */
+    --room-wall: 25 35% 25%;
+    --room-floor: 35 45% 35%;
+    --room-furniture: 15 25% 20%;
+    --outdoor-sky: 210 100% 70%;
+    --outdoor-grass: 120 60% 40%;
+    --outdoor-tree: 95 40% 30%;
+    --character-skin: 25 50% 75%;
+    --character-hair: 35 60% 45%;
+    --character-outfit: 280 80% 60%;
+
+    /* Gradients */
+    --gradient-room: linear-gradient(135deg, hsl(var(--room-wall)), hsl(var(--room-floor)));
+    --gradient-outdoor: linear-gradient(180deg, hsl(var(--outdoor-sky)), hsl(var(--outdoor-grass)));
+    --gradient-ui: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+
+    /* Shadows & Effects */
+    --shadow-pixel: 0 2px 0 hsl(var(--border)), 0 4px 8px hsl(var(--background) / 0.3);
+    --glow-character: 0 0 20px hsl(var(--primary) / 0.5);
+
+    --radius: 0;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-pixel;
+  }
+
+  /* Pixel-perfect rendering */
+  .pixelated,
+  .image-rendering-pixelated {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  /* Disable text selection on game elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Custom scrollbar for game UI */
+  .game-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .game-scroll::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .game-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+}
